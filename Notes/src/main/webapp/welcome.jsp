@@ -5,8 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<%@ include file="all_components/allcss.jsp"%>
 </head>
 <body>
-<h1>Welcome Page</h1>
+<%@ include file="all_components/navbar.jsp"%>
+	<h1 class="text-warning">Welcome Page</h1>
+	<%@ include file="all_components/footer.jsp"%>
 </body>
 </html>
