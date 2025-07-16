@@ -1,3 +1,15 @@
+<!-- Code Start for (This page will not open without Login  -->
+<%
+	UserDetails user1=(UserDetails)session.getAttribute("UserD");
+	if(user1==null){
+		response.sendRedirect("login.jsp");
+		session.setAttribute("login-error", "Please Login First....!!");
+	}
+%>
+<!-- Code End for (This page will not open without Login  -->
+
+
+
 <%@ include file="all_components/allcss.jsp"%>
 <title>Add Note</title>
 

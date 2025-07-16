@@ -15,22 +15,36 @@
 				<div class="card">
 					<div class="card-header">
 						<h1>Login</h1>
+						
+						<%
+							String invalidMsg = (String) session.getAttribute("login-failed");
+							if (invalidMsg != null) {
+							%>
+							<div class="alert alert-danger" role="alert">
+								<%=invalidMsg%>
+							</div>
+							<%
+							session.removeAttribute("login-failed");
+							}
+							%>
+
+							<%
+							String authMsg = (String) session.getAttribute("login-error");
+							if (authMsg != null) {
+							%>
+							<div class="alert alert-danger" role="alert">
+								<%=authMsg%>
+							</div>
+							<%
+							session.removeAttribute("login-error");
+							}
+							%>
+						
 					</div>
-					<%
-					String invalidMsg = (String) session.getAttribute("login-failed");
-					if (invalidMsg != null) {
-					%>
-					<div class="alert alert-danger" role="alert">
-						<%=invalidMsg%>
-					</div>
-					<%
-					session.removeAttribute("login-failed");
-					}
-					%>
+
 					<div class="card-body">
 						<form method="post" action="LoginServlet">
-
-
+							
 							<div class="form-group">
 								<label for="exampleInputEmail1">Email address</label> <input
 									type="email" name="uemail" class="form-control"
