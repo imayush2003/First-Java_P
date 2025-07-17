@@ -18,14 +18,26 @@
 	<h1 class="text-center mt-5 mb-5">Add Your Note</h1>
 	<div class="row">
 	<div class="col-md-12">
-	<form>
+	<form action="AddNotes" method="post">
+	
+		<div class="form-group">
+		<%
+			UserDetails us=(UserDetails)session.getAttribute("UserD");
+			if(us!=null){
+		%>
+			    <input type="hidden" name="uid" class="form-control" value="<%=us.getId()%>">
+			
+		<%
+			}     
+		%>
+		</div>
   <div class="form-group">
     <label for="exampleInputEmail1">Enter Title</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Title">
+    <input type="text" name="title" class="form-control" id="" aria-describedby="" placeholder="Enter Title">
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Content</label>
-    <textarea rows="12" class="form-control" id="" ></textarea>
+    <textarea name="content" rows="12" class="form-control" id="" ></textarea>
   </div>
  
   <button type="submit" class="btn btn-primary">Add Note</button>
