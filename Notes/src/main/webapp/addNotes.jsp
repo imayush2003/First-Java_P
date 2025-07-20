@@ -32,11 +32,11 @@
 		%>
 		</div>
   <div class="form-group">
-    <label for="exampleInputEmail1">Enter Title</label>
+    <label for="">Enter Title</label>
     <input type="text" name="title" class="form-control" id="" aria-describedby="" placeholder="Enter Title">
   </div>
   <div class="form-group">
-    <label for="exampleInputPassword1">Content</label>
+    <label for="">Content</label>
     <textarea name="content" rows="12" class="form-control" id="" ></textarea>
   </div>
  
