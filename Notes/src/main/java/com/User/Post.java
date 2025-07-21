@@ -3,11 +3,13 @@ package com.User;
 import java.util.Date;
 
 public class Post {
+	
 	private int id;
 	private String title;
 	private String content;
 	private Date pdate;
 	private UserDetails user;
+	
 	public Post(int id, String title, String content, Date pdate, UserDetails user) {
 		super();
 		// TODO Auto-generated constructor stub

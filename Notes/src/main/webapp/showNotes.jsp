@@ -1,10 +1,5 @@
 <!-- Code Start for (This page will not open without Login  -->
 
-
-
-
-
-
 <%
 UserDetails user1 = (UserDetails) session.getAttribute("UserD");
 if (user1 == null) {
@@ -12,6 +7,7 @@ if (user1 == null) {
 	session.setAttribute("login-error", "Please Login First....!!");
 }
 %>
+
 <!-- Code End for (This page will not open without Login-->
 <%@page import="com.DAO.PostDAO"%>
 <%@page import="java.util.List"%>
@@ -50,7 +46,8 @@ if (user1 == null) {
 					<p><b>Upload Date: <%=po.getPdate() %></b></p>
 				</div>
 				<div class="">
-					<a href="">Delete</a> <a href="">Edit</a>
+					<a href="DeleteServlet?note_id=<%=po.getId()%>">Delete</a>
+					 <a href="edit.jsp?note_id=<%=po.getId()%>">Edit</a>
 				</div>
 			</div>
 		</div>

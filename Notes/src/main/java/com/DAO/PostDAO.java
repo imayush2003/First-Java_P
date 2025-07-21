@@ -67,4 +67,73 @@ public class PostDAO {
 		return list;
 	}
 //End Code	
+	
+	// Code to get all the post by a particular User
+		public Post getDataByID(int nodeId) {
+
+			Post p = null;
+			try {
+				String query = "select * from post where id=?";
+				PreparedStatement pstmt = conn.prepareStatement(query);
+				pstmt.setInt(1, nodeId);
+
+				ResultSet rs = pstmt.executeQuery();
+
+				while (rs.next()) {
+					p = new Post();
+					p.setId(rs.getInt(1));
+					p.setTitle(rs.getString(2));
+					p.setContent(rs.getString(3));
+
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return p;
+		}
+
+		// Code to update post by a particular User
+		public boolean UpdateNotes(int nid, String ti, String con) {
+
+			boolean f = false;
+			try {
+				String query = "update post set title=?, content=? where id=?";
+				PreparedStatement pstmt = conn.prepareStatement(query);
+
+				pstmt.setString(1, ti);
+				pstmt.setString(2, con);
+				pstmt.setInt(3, nid);
+
+				int i = pstmt.executeUpdate();
+				if (i == 1) {
+					f = true;
+				}
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return f;
+		}
+
+		// Code to delete post by a particular User
+		public boolean DeleteNotes(int nid) {
+
+			boolean f = false;
+			try {
+				String query = "delete post from post where id=?";
+				PreparedStatement pstmt = conn.prepareStatement(query);
+
+				pstmt.setInt(1, nid);
+
+				int i = pstmt.executeUpdate();
+				if (i == 1) {
+					f = true;
+				}
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return f;
+		}
+	
 }
