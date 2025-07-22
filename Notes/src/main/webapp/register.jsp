@@ -17,6 +17,20 @@
 						<h1>Register</h1>
 					</div>
 					<div class="card-body">
+					
+					<%
+    String regError = (String) session.getAttribute("registration-failed");
+    if (regError != null) {
+%>
+    <div class="alert alert-danger" role="alert">
+        <%= regError %>
+    </div>
+<%
+        session.removeAttribute("registration-failed");
+    }
+%>
+					
+					
 						<form method="post" action="UserServlet">
 							<div class="form-group">
 								<label for="">Name</label> <input type="text" name="fname"
