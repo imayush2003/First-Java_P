@@ -15,21 +15,21 @@
             if (user != null) {
             %>
                 <li class="nav-item">
-                    <button type="button" class="btn btn-outline-light my-2 my-sm-0 mx-1" data-toggle="modal" data-target="#exampleModal">
+                    <button type="button" class="btn btn-warning my-2 my-sm-0 mx-1" data-toggle="modal" data-target="#exampleModal">
                         <%=user.getName()%>
                     </button>
                 </li>
                 <li class="nav-item">
-                    <a class="btn btn-outline-light my-2 my-sm-0 mx-1" href="LogoutServlet">Logout</a>
+                    <a class="btn btn-danger my-2 my-sm-0 mx-1" href="LogoutServlet">Logout</a>
                 </li>
             <%
             } else {
             %>
                 <li class="nav-item">
-                    <a class="btn btn-outline-light my-2 my-sm-0 mx-1" href="login.jsp">Login</a>
+                    <a class="btn btn-success my-2 my-sm-0 mx-1" href="login.jsp">Login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="btn btn-outline-light my-2 my-sm-0 mx-1" href="register.jsp">Register</a>
+                    <a class="btn btn-dark my-2 my-sm-0 mx-1" href="register.jsp">Register</a>
                 </li>
             <%
             }

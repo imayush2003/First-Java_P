@@ -1,4 +1,4 @@
-<footer class="bg-dark text-white py-3 mt-4 fixed-bottom">
+<footer class="bg-dark text-white py-3 mt-4">
     <div class="container text-center">
         <p class="mb-1">
             We Are Committed To Providing Quality Services And Solutions To Our Clients Across The Globe.
