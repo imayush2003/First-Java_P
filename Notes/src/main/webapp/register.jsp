@@ -1,64 +1,76 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Register Page</title>
-<%@ include file="all_components/allcss.jsp"%>
+  <meta charset="UTF-8">
+  <title>Register Page</title>
+  <%@ include file="all_components/allcss.jsp" %>
+  <style>
+    body {
+      background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+      min-height: 100vh;
+    }
+    .card {
+      border: none;
+      border-radius: 1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    .form-label {
+      font-weight: 500;
+    }
+  </style>
 </head>
 <body>
-	<%@ include file="all_components/navbar.jsp"%>
-	<div class="container-fluid mt-5">
-		<div class="row">
-			<div class="col-md-4 offset-md-4">
-				<div class="card">
-					<div class="card-header">
-						<h1>Register</h1>
-					</div>
-					<div class="card-body">
-					
-					<%
-    String regError = (String) session.getAttribute("registration-failed");
-    if (regError != null) {
-%>
-    <div class="alert alert-danger" role="alert">
-        <%= regError %>
+
+  <%@ include file="all_components/navbar.jsp" %>
+
+  <div class="container d-flex justify-content-center align-items-center mt-5 mb-5">
+    <div class="col-md-6 col-lg-5">
+      <div class="card p-4">
+        <div class="card-body">
+          <h3 class="card-title text-center mb-4 text-primary">Create Your Account</h3>
+
+          <%-- Registration error message --%>
+          <%
+            String regError = (String) session.getAttribute("registration-failed");
+            if (regError != null) {
+          %>
+            <div class="alert alert-danger" role="alert">
+              <%= regError %>
+            </div>
+          <%
+              session.removeAttribute("registration-failed");
+            }
+          %>
+
+          <form method="post" action="UserServlet">
+            <div class="mb-3">
+              <label for="name" class="form-label">Full Name</label>
+              <input type="text" name="fname" class="form-control" id="name" placeholder="Enter your name" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="email" class="form-label">Email address</label>
+              <input type="email" name="uemail" class="form-control" id="email" placeholder="Enter your email" required>
+            </div>
+
+            <div class="mb-4">
+              <label for="password" class="form-label">Password</label>
+              <input type="password" name="upassword" class="form-control" id="password" placeholder="Create a password" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">Register</button>
+          </form>
+
+          <div class="text-center mt-3">
+            <a href="login.jsp" class="text-decoration-none">Already have an account? Login</a>
+          </div>
+        </div>
+      </div>
     </div>
-<%
-        session.removeAttribute("registration-failed");
-    }
-%>
-					
-					
-						<form method="post" action="UserServlet">
-							<div class="form-group">
-								<label for="">Name</label> <input type="text" name="fname"
-									class="form-control" id="" aria-describedby=""
-									placeholder="Enter Name">
-							</div>
+  </div>
 
-							<div class="form-group">
-								<label for="exampleInputEmail1">Email address</label> <input
-									type="email" name="uemail" class="form-control" id="exampleInputEmail1"
-									aria-describedby="emailHelp" placeholder="Enter email">
-							</div>
-
-							<div class="form-group">
-								<label for="exampleInputPassword1">Password</label> <input
-									type="password" name="upassword" class="form-control" id="exampleInputPassword1"
-									placeholder="Password">
-							</div>
-
-							<button type="submit" class="btn btn-primary">Register</button>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<%@ include file="all_components/footer.jsp"%>
+  <%@ include file="all_components/footer.jsp" %>
 
 </body>
 </html>
